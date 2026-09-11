@@ -1,8 +1,8 @@
 const produtos = [
   {id:1, nome:"Choker fina 2mm", preco:79.90, categoria:"Chokers", cores:["Dourado"], imagem:"imagens/IMG-20260909-WA0088.jpg"},
   {id:2, nome:"Choker fita 2mm", preco:79.90, categoria:"Chokers", cores:["Dourado"], imagem:"imagens/IMG-20260909-WA0066.jpg"},
-  {id:3, nome:"Choker elo Cartier", preco:59.90, categoria:"Chokers", cores:["Dourado", "Prateado"], imagem:"imagens/IMG-20260909-WA0093.jpg"},
-  {id:4, nome:"Choker fita 4mm", preco:89.90, categoria:"Chokers", cores:["Dourado", "Prateado"], imagem:"imagens/IMG-20260909-WA0093.jpg"},
+  {id:3, nome:"Choker Cartier Elo", preco:59.90, categoria:"Chokers", cores:["Dourado", "Prateado"], imagem:"imagens/IMG-20260909-WA0093.jpg"},
+ {id:4, nome:"Choker fita 4mm", preco:89.90, categoria:"Chokers", cores:["Dourado", "Prateado"], imagem:"imagens/arquivo_0000000093f881f590fd8bfd002fa83c.png"},
   {id:5, nome:"Choker coração cristal com coração liso", preco:79.90, categoria:"Chokers", cores:["Dourado"], imagem:"imagens/IMG-20260909-WA0112.jpg"},
   {id:6, nome:"Choker trevo madrepérola", preco:109.90, categoria:"Chokers", cores:["Dourado"], imagem:"imagens/IMG-20260909-WA0126.jpg"},
   {id:7, nome:"Colar cristal preto com trevo", preco:59.90, categoria:"Colares", cores:["Dourado"], imagem:"imagens/IMG-20260909-WA0066.jpg"},
