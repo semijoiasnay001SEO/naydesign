@@ -143,3 +143,4 @@ window.renderizarProdutos = renderizarProdutos;
 document.addEventListener("DOMContentLoaded", function() {
     renderizarProdutos(produtos);
 });
+imagem: "IMG-20260909-WA0040.jpg"
