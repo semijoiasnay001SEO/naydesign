@@ -4,64 +4,148 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Loja | Nay Semi Joias</title>
+    <title>Nay Semi Joias | Loja</title>
 
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="loja.css">
 </head>
 
 <body>
 
-<header>
-    <a href="index.html" aria-label="Nay Semi Joias">
-        <img src="logo.jpg" alt="Nayara Oliveira Semi Joias">
-    </a>
+    <!-- CABEÇALHO -->
+    <header class="loja-header">
 
-    <nav>
-        <a href="index.html">Início</a>
-        <a href="loja.html">Loja</a>
-        <a href="index.html#sobre">Sobre</a>
-        <a href="index.html#contato">Contato</a>
-    </nav>
-</header>
+        <a href="index.html" class="loja-logo">
+            <img src="logo.jpg" alt="Nayara Oliveira Semi Joias">
+        </a>
 
-<main>
+        <nav class="loja-nav">
+            <a href="index.html">Início</a>
+            <a href="loja.html">Loja</a>
+            <a href="#produtos-area">Produtos</a>
+        </nav>
 
-    <section class="loja-topo">
-        <h1>Loja Nay Semi Joias</h1>
+    </header>
+
+
+    <!-- BANNER -->
+    <section class="loja-banner">
+
+        <h1>Nay Semi Joias</h1>
 
         <p>
-            Encontre sua peça favorita e escolha o banho disponível.
+            Descubra nossa coleção de semijoias e encontre
+            a peça perfeita para você.
         </p>
 
-        <div class="categorias">
-            <button onclick="filtrar('todos')">Todos</button>
-            <button onclick="filtrar('colares')">Colares</button>
-            <button onclick="filtrar('chokers')">Chokers</button>
-            <button onclick="filtrar('brincos')">Brincos</button>
-            <button onclick="filtrar('pulseiras')">Pulseiras</button>
-            <button onclick="filtrar('conjuntos')">Conjuntos</button>
-            <button onclick="filtrar('tornozeleiras')">Tornozeleiras</button>
-            <button onclick="filtrar('piercings')">Piercings</button>
-        </div>
     </section>
 
 
-    <section class="produtos-area">
+    <!-- CATEGORIAS -->
+    <section class="categorias" id="categorias">
 
-        <div id="produtos" class="produtos-grid"></div>
+        <button class="ativo" onclick="filtrarProdutos('Todos', this)">
+            Todos
+        </button>
+
+        <button onclick="filtrarProdutos('Chokers', this)">
+            Chokers
+        </button>
+
+        <button onclick="filtrarProdutos('Colares', this)">
+            Colares
+        </button>
+
+        <button onclick="filtrarProdutos('Brincos', this)">
+            Brincos
+        </button>
+
+        <button onclick="filtrarProdutos('Pulseiras', this)">
+            Pulseiras
+        </button>
+
+        <button onclick="filtrarProdutos('Conjuntos', this)">
+            Conjuntos
+        </button>
+
+        <button onclick="filtrarProdutos('Tornozeleiras', this)">
+            Tornozeleiras
+        </button>
+
+        <button onclick="filtrarProdutos('Braceletes', this)">
+            Braceletes
+        </button>
+
+        <button onclick="filtrarProdutos('Piercings', this)">
+            Piercings
+        </button>
 
     </section>
 
-</main>
+
+    <!-- PRODUTOS -->
+    <main class="loja-produtos" id="produtos-area">
+
+        <h2>Nossa Coleção</h2>
+
+        <div id="produtos"></div>
+
+    </main>
 
 
-<footer>
-    <p>© 2026 Nay Semi Joias. Todos os direitos reservados.</p>
-</footer>
+    <!-- RODAPÉ -->
+    <footer class="loja-footer">
+
+        <h3>Nay Semi Joias</h3>
+
+        <p>
+            Elegância, beleza e sofisticação em cada detalhe.
+        </p>
+
+        <p>
+            © 2026 Nay Semi Joias — Todos os direitos reservados.
+        </p>
+
+    </footer>
 
 
-<script src="produtos.js"></script>
+    <!-- JAVASCRIPT -->
+    <script src="produtos.js"></script>
+
+    <script>
+
+        function filtrarProdutos(categoria, botao) {
+
+            const botoes = document.querySelectorAll(".categorias button");
+
+            botoes.forEach(function(item) {
+                item.classList.remove("ativo");
+            });
+
+            botao.classList.add("ativo");
+
+            if (categoria === "Todos") {
+
+                renderizarProdutos(produtos);
+
+            } else {
+
+                const produtosFiltrados = produtos.filter(function(produto) {
+
+                    return produto.categoria === categoria;
+
+                });
+
+                renderizarProdutos(produtosFiltrados);
+            }
+
+            document
+                .getElementById("produtos-area")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+        }
+
+    </script>
 
 </body>
 </html>
