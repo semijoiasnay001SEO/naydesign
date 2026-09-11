@@ -1,68 +1,133 @@
-/* =========================
-   LOJA NAY SEMI JOIAS
-========================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-.loja-topo {
-    text-align: center;
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
     background: #fbf7f2;
-    padding: 70px 5% 40px;
+    color: #4a403a;
 }
 
-.loja-topo h1 {
-    font-family: Georgia, "Times New Roman", serif;
+/* CABEÇALHO DA LOJA */
+
+.loja-header {
+    background: #ffffff;
+    border-bottom: 1px solid #e8ddd4;
+    padding: 12px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.loja-logo img {
+    width: 105px;
+    height: auto;
+    display: block;
+}
+
+.loja-nav {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.loja-nav a {
     color: #2c2521;
-    font-size: clamp(35px, 6vw, 55px);
-    margin-bottom: 12px;
+    text-decoration: none;
+    font-size: 15px;
 }
 
-.loja-topo p {
-    color: #6b5a50;
-    margin-bottom: 30px;
+.loja-nav a:hover {
+    color: #b08a57;
 }
+
+/* BANNER */
+
+.loja-banner {
+    padding: 65px 7%;
+    text-align: center;
+    background: linear-gradient(135deg, #fbf7f2, #f1e2d5);
+}
+
+.loja-banner h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(38px, 6vw, 65px);
+    color: #2c2521;
+    margin-bottom: 10px;
+}
+
+.loja-banner p {
+    font-size: 17px;
+    max-width: 650px;
+    margin: auto;
+}
+
+/* CATEGORIAS */
 
 .categorias {
+    background: #ffffff;
+    padding: 25px 6%;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
     gap: 10px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #e8ddd4;
 }
 
 .categorias button {
-    background: white;
-    color: #8f6552;
-    border: 1px solid #d8c6ba;
+    border: 1px solid #d8c6b7;
+    background: #ffffff;
+    color: #6b5142;
     padding: 10px 18px;
     border-radius: 25px;
     cursor: pointer;
+    transition: 0.3s;
 }
 
-.categorias button:hover {
+.categorias button:hover,
+.categorias button.ativo {
     background: #8f6552;
-    color: white;
+    color: #ffffff;
 }
 
-.produtos-area {
-    padding: 50px 6%;
-    background: white;
-}
+/* PRODUTOS */
 
-.produtos-grid {
-    max-width: 1200px;
+.loja-produtos {
+    max-width: 1250px;
     margin: auto;
+    padding: 55px 5%;
+}
 
+.loja-produtos h2 {
+    text-align: center;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 38px;
+    color: #2c2521;
+    margin-bottom: 40px;
+}
+
+#produtos {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-
     gap: 25px;
 }
 
+/* CARD */
+
 .produto-card {
-    background: #fffdfb;
+    background: #ffffff;
     border: 1px solid #e8ddd4;
-    border-radius: 15px;
-
+    border-radius: 16px;
     overflow: hidden;
-
     transition: 0.3s;
 }
 
@@ -73,12 +138,27 @@
 
 .produto-imagem {
     width: 100%;
-    height: 260px;
+    aspect-ratio: 1 / 1;
+    background: #f7f1eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
 
+.produto-imagem img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-
     display: block;
 }
+
+.sem-imagem {
+    color: #9b8577;
+    font-size: 14px;
+}
+
+/* INFORMAÇÕES */
 
 .produto-info {
     padding: 18px;
@@ -87,99 +167,159 @@
 .produto-categoria {
     font-size: 12px;
     text-transform: uppercase;
-    color: #a68a75;
     letter-spacing: 1px;
+    color: #b08a57;
 }
 
-.produto-nome {
+.produto-info h3 {
     font-family: Georgia, "Times New Roman", serif;
-    color: #2c2521;
-
     font-size: 19px;
-
-    margin: 7px 0;
+    line-height: 1.3;
+    color: #2c2521;
+    margin: 8px 0 12px;
 }
 
-.produto-preco {
-    color: #8f6552;
-
+.produto-info strong {
+    display: block;
     font-size: 20px;
-
-    font-weight: bold;
-
-    margin: 8px 0;
+    color: #8f6552;
+    margin-bottom: 8px;
 }
 
-.produto-banho {
+.produto-info p {
     font-size: 13px;
-    color: #665850;
-
-    min-height: 38px;
+    color: #75665d;
+    min-height: 35px;
+    margin-bottom: 15px;
 }
 
-.btn-comprar {
+/* BOTÃO COMPRAR */
+
+.produto-info button {
     width: 100%;
-
-    margin-top: 15px;
-
     padding: 12px;
-
     border: none;
-
     border-radius: 25px;
-
     background: #8f6552;
-    color: white;
-
+    color: #ffffff;
+    font-size: 15px;
     cursor: pointer;
-
-    font-size: 14px;
+    transition: 0.3s;
 }
 
-.btn-comprar:hover {
+.produto-info button:hover {
     background: #b08a57;
+    transform: translateY(-2px);
 }
 
+/* RODAPÉ */
 
-/* CELULAR */
+.loja-footer {
+    background: #2c2521;
+    color: #ffffff;
+    text-align: center;
+    padding: 35px 20px;
+    margin-top: 30px;
+}
 
-@media (max-width: 900px) {
+.loja-footer h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    margin-bottom: 10px;
+}
 
-    .produtos-grid {
+.loja-footer p {
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+
+    #produtos {
         grid-template-columns: repeat(3, 1fr);
     }
 
 }
 
-@media (max-width: 650px) {
+/* CELULAR */
 
-    .produtos-grid {
+@media (max-width: 700px) {
+
+    .loja-header {
+        padding: 10px 5%;
+    }
+
+    .loja-logo img {
+        width: 85px;
+    }
+
+    .loja-nav {
+        gap: 12px;
+    }
+
+    .loja-nav a {
+        font-size: 12px;
+    }
+
+    .loja-banner {
+        padding: 50px 6%;
+    }
+
+    .loja-banner h1 {
+        font-size: 40px;
+    }
+
+    .loja-banner p {
+        font-size: 15px;
+    }
+
+    .loja-produtos {
+        padding: 40px 4%;
+    }
+
+    .loja-produtos h2 {
+        font-size: 30px;
+    }
+
+    #produtos {
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
     }
 
-    .produto-imagem {
-        height: 190px;
-    }
-
     .produto-info {
-        padding: 12px;
+        padding: 13px;
     }
 
-    .produto-nome {
+    .produto-info h3 {
         font-size: 16px;
     }
 
-    .produto-preco {
-        font-size: 17px;
+    .produto-info strong {
+        font-size: 18px;
+    }
+
+    .produto-info p {
+        font-size: 11px;
     }
 
 }
 
+/* CELULARES PEQUENOS */
+
 @media (max-width: 400px) {
 
-    .produtos-grid {
-        grid-template-columns: 1fr 1fr;
+    #produtos {
+        gap: 9px;
+    }
+
+    .produto-info h3 {
+        font-size: 15px;
+    }
+
+    .produto-info button {
+        font-size: 13px;
+        padding: 10px;
     }
 
 }
