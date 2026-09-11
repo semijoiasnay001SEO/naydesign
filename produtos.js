@@ -1,5 +1,5 @@
 const produtos = [
-{id:1,nome:"Choker fina 2mm",preco:79.90,categoria:"Chokers",cores:["Dourado"]},
+{id:1,nome:"Choker fina 2mm",preco:79.90,categoria:"Chokers",cores:["Dourado"],imagem:"imagens/IMG-20260909-WA0040.jpg"},
 {id:2,nome:"Colar cristal preto com trevo",preco:59.90,categoria:"Colares",cores:["Dourado"]},
 {id:3,nome:"Choker fita 2mm",preco:79.90,categoria:"Chokers",cores:["Dourado"]},
 {id:4,nome:"Colar nylon pérola shell com coração",preco:89.90,categoria:"Colares",cores:["Dourado"]},
