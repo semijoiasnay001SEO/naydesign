@@ -132,3 +132,9 @@ info.appendChild(botaoCarrinho);
 card.appendChild(imagem);
 card.appendChild(info);
 container.appendChild(card);
+window.produtos = produtos;
+window.renderizarProdutos = renderizarProdutos;
+window.formatarPreco = formatarPreco;
+document.addEventListener("DOMContentLoaded", function() {
+    renderizarProdutos(produtos);
+});
