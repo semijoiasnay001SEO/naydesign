@@ -97,13 +97,15 @@ function renderizarProdutos(lista) {
     const cores = document.createElement("p");
     cores.textContent = "Banho: " + produto.cores.join(" • ");
     const botao = document.createElement("button");
-    botao.textContent = "Comprar pelo WhatsApp";
-    botao.addEventListener("click", function() {
-      const mensagem = "Olá! Tenho interesse em " + produto.nome + " - " + formatarPreco(produto.preco) + ". Banho: " + produto.cores.join(", ") + ".";
-      window.open("https://wa.me/5511999999999?text=" + encodeURIComponent(mensagem), "_blank");
-    });
-    info.appendChild(categoria);
-    info.appendChild(nome);
+botao.className = "adicionar-carrinho";
+botao.type = "button";
+botao.textContent = "Adicionar ao carrinho";
+
+botao.addEventListener("click", function() {
+    if (typeof window.adicionarAoCarrinho === "function") {
+        window.adicionarAoCarrinho(produto);
+    }
+});
     info.appendChild(preco);
     info.appendChild(cores);
     info.appendChild(botao);
