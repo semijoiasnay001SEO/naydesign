@@ -9,10 +9,12 @@
 </head>
 <body>
 <header>
-  <a aria-label="Nay Sem Joias" href="#inicio">
+  <a aria-label="Nay Semi Joias" href="#inicio">
     <img src="logo.jpg" alt="Nayara Oliveira Semi Joias">
   </a>
-  <button class="menu" aria-label="Menu">☰</button>
+
+  <button class="menu" aria-label="Abrir menu" aria-expanded="false">☰</button>
+
   <nav>
     <a href="#inicio">Início</a>
     <a href="#colecao">Coleção</a>
@@ -23,16 +25,27 @@
 
 <main>
 <section id="inicio" class="hero">
-  <div>
+  <div class="hero-content">
     <p class="eyebrow">NAY SEMI JOIAS</p>
-    <h1>Elegância em cada detalhe.</h1>
-    <p>Semijoias escolhidas para transformar seu look e valorizar sua beleza.</p>
+    <h1>Elegância em<br>cada detalhe.</h1>
+    <p class="hero-text">Semijoias escolhidas para transformar seu look e valorizar sua beleza.</p>
+
     <div class="buttons">
-      <a class="btn" href="loja.html">Ver coleção completa</a>
-      <a class="btn outline" href="https://wa.me/5511999999999" target="_blank">Falar no WhatsApp</a>
+      <a class="btn" href="loja.html">Ver coleção completa <span>→</span></a>
+      <a class="btn outline" href="https://wa.me/5511999999999" target="_blank" rel="noopener">Falar no WhatsApp</a>
     </div>
   </div>
-  <div class="hero-jewel">N<br><small>SEMI JOIAS</small></div>
+
+  <div class="hero-badge">
+    <span>Detalhes que</span>
+    <strong>valorizam você.</strong>
+  </div>
+</section>
+
+<section class="benefits" aria-label="Benefícios">
+  <div><span>◇</span><strong>Qualidade</strong><small>Peças selecionadas</small></div>
+  <div><span>◌</span><strong>Atendimento</strong><small>Fale pelo WhatsApp</small></div>
+  <div><span>♢</span><strong>Compra segura</strong><small>Atendimento personalizado</small></div>
 </section>
 
 <section id="colecao" class="section">
@@ -45,40 +58,51 @@
   <div class="grid">
     <article class="card">
       <img src="imagens/IMG-20260909-WA0095.jpg" alt="Brincos Nay Semi Joias">
-      <h3>Brincos</h3>
-      <p>Modelos delicados e sofisticados.</p>
-      <a class="btn" href="loja.html#produtos-area">Ver brincos →</a>
+      <div class="card-content">
+        <h3>Brincos</h3>
+        <p>Modelos delicados e sofisticados.</p>
+        <a class="btn" href="loja.html#produtos-area">Ver brincos →</a>
+      </div>
     </article>
 
     <article class="card">
       <img src="imagens/IMG-20260909-WA0066.jpg" alt="Colares Nay Semi Joias">
-      <h3>Colares</h3>
-      <p>Peças para completar seu visual.</p>
-      <a class="btn" href="loja.html#produtos-area">Ver colares →</a>
+      <div class="card-content">
+        <h3>Colares</h3>
+        <p>Peças para completar seu visual.</p>
+        <a class="btn" href="loja.html#produtos-area">Ver colares →</a>
+      </div>
     </article>
 
     <article class="card">
       <img src="imagens/IMG-20260909-WA0089(1).jpg" alt="Pulseiras Nay Semi Joias">
-      <h3>Pulseiras</h3>
-      <p>Detalhes que fazem a diferença.</p>
-      <a class="btn" href="loja.html#produtos-area">Ver pulseiras →</a>
+      <div class="card-content">
+        <h3>Pulseiras</h3>
+        <p>Detalhes que fazem a diferença.</p>
+        <a class="btn" href="loja.html#produtos-area">Ver pulseiras →</a>
+      </div>
     </article>
 
     <article class="card">
       <img src="imagens/IMG-20260909-WA0099.jpg" alt="Conjuntos Nay Semi Joias">
-      <h3>Conjuntos</h3>
-      <p>Combinações elegantes para presentear ou usar.</p>
-      <a class="btn" href="loja.html#produtos-area">Ver conjuntos →</a>
+      <div class="card-content">
+        <h3>Conjuntos</h3>
+        <p>Combinações elegantes para presentear ou usar.</p>
+        <a class="btn" href="loja.html#produtos-area">Ver conjuntos →</a>
+      </div>
     </article>
   </div>
 
-  <div style="text-align:center; margin-top:35px;">
-    <a class="btn" href="loja.html">Abrir catálogo completo</a>
+  <div class="collection-cta">
+    <a class="btn large" href="loja.html">Abrir catálogo completo <span>→</span></a>
   </div>
 </section>
 
 <section id="sobre" class="about">
-  <div><p class="eyebrow">SOBRE A NAY SEMI JOIAS</p><h2>Seu estilo merece esse detalhe.</h2></div>
+  <div>
+    <p class="eyebrow">SOBRE A NAY SEMI JOIAS</p>
+    <h2>Seu estilo merece esse detalhe.</h2>
+  </div>
   <div>
     <p>A Nay Semi Joias foi criada para levar beleza, elegância e personalidade para cada produção.</p>
     <p>Explore nossa coleção e escolha sua peça favorita.</p>
@@ -90,12 +114,33 @@
     <p class="eyebrow">FALE CONOSCO</p>
     <h2>Gostou de uma peça?</h2>
     <p>Entre em contato para consultar disponibilidade, valores e formas de pagamento.</p>
-    <a class="btn" href="https://wa.me/5511999999999" target="_blank">Chamar no WhatsApp</a>
+    <a class="btn large" href="https://wa.me/5511999999999" target="_blank" rel="noopener">Chamar no WhatsApp</a>
   </div>
 </section>
 </main>
 
-<footer><strong>Nay Semi Joias</strong><p>Elegância em cada detalhe.</p><small>© 2026 Nay Semi Joias</small></footer>
+<footer>
+  <strong>Nay Semi Joias</strong>
+  <p>Elegância em cada detalhe.</p>
+  <small>© 2026 Nay Semi Joias</small>
+</footer>
+
 <script src="script.js"></script>
+<script>
+const menu = document.querySelector('.menu');
+const nav = document.querySelector('nav');
+if (menu && nav) {
+  menu.addEventListener('click', function () {
+    nav.classList.toggle('open');
+    menu.setAttribute('aria-expanded', nav.classList.contains('open'));
+  });
+  document.querySelectorAll('nav a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      nav.classList.remove('open');
+      menu.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
+</script>
 </body>
 </html>
