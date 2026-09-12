@@ -24,6 +24,12 @@
             <a href="#produtos-area">Produtos</a>
         </nav>
 
+
+        <button class="carrinho-botao" id="abrir-carrinho" type="button" aria-label="Abrir carrinho">
+            🛒 <span>Meu carrinho</span>
+            <b id="contador-carrinho">0</b>
+        </button>
+
     </header>
 
 
@@ -92,6 +98,39 @@
     </main>
 
 
+
+    <!-- CARRINHO -->
+    <div class="carrinho-overlay" id="carrinho-overlay" aria-hidden="true">
+        <aside class="carrinho-painel" aria-label="Carrinho de compras">
+            <div class="carrinho-topo">
+                <div>
+                    <span class="carrinho-kicker">NAY SEMI JOIAS</span>
+                    <h2>Meu carrinho</h2>
+                </div>
+                <button class="carrinho-fechar" id="fechar-carrinho" type="button" aria-label="Fechar carrinho">×</button>
+            </div>
+
+            <div id="itens-carrinho" class="itens-carrinho"></div>
+
+            <div class="carrinho-vazio" id="carrinho-vazio">
+                <div class="carrinho-vazio-icone">🛍️</div>
+                <h3>Seu carrinho está vazio</h3>
+                <p>Escolha suas peças favoritas e adicione ao carrinho.</p>
+            </div>
+
+            <div class="carrinho-resumo">
+                <div><span>Total</span><strong id="total-carrinho">R$ 0,00</strong></div>
+                <button id="finalizar-whatsapp" class="finalizar-whatsapp" type="button">
+                    Finalizar pedido pelo WhatsApp
+                </button>
+                <button id="continuar-comprando" class="continuar-comprando" type="button">
+                    Continuar comprando
+                </button>
+                <small>O pagamento online poderá ser conectado em uma próxima etapa.</small>
+            </div>
+        </aside>
+    </div>
+
     <!-- RODAPÉ -->
     <footer class="loja-footer">
 
@@ -110,6 +149,7 @@
 
     <!-- JAVASCRIPT -->
     <script src="produtos.js"></script>
+    <script src="carrinho.js"></script>
 
     <script>
 
