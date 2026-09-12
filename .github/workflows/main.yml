@@ -1,0 +1,30 @@
+name: Limpar fotos antigas
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  limpar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar repositorio
+        uses: actions/checkout@v4
+
+      - name: Apagar fotos IMG da raiz
+        run: |
+          git rm -f -- IMG-*.jpg 2>/dev/null || true
+
+          if git diff --cached --quiet; then
+            echo "Nenhuma foto antiga encontrada."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git commit -m "Remover fotos antigas duplicadas"
+          git push
