@@ -1,365 +1,103 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+ --bg:#f8f1e9;
+ --cream:#fffdf9;
+ --dark:#2b2420;
+ --brown:#946a55;
+ --gold:#b08a57;
+ --text:#51463f;
+ --white:#fff;
+ --border:#e7dbd0;
 }
+body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+header{width:100%;min-height:86px;padding:10px 6%;background:rgba(255,255,255,.96);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:1000;backdrop-filter:blur(8px)}
+header img{width:115px;height:auto;display:block;object-fit:contain}
+header>a{display:flex;align-items:center}
+nav{display:flex;align-items:center;gap:34px}
+nav a{text-decoration:none;color:var(--dark);font-size:15px;font-weight:500;transition:.25s}
+nav a:hover{color:var(--gold)}
+.menu{display:none;border:0;background:transparent;font-size:28px;cursor:pointer;color:var(--dark)}
 
-html {
-    scroll-behavior: smooth;
+.hero{position:relative;min-height:610px;padding:70px 8%;display:flex;align-items:center;justify-content:flex-start;overflow:hidden;background-image:linear-gradient(90deg,rgba(248,241,233,.98) 0%,rgba(248,241,233,.90) 42%,rgba(248,241,233,.20) 76%,rgba(248,241,233,.04) 100%),url("imagens/IMG-20260909-WA0095.jpg");background-size:cover;background-position:center right}
+.hero-content{position:relative;z-index:2;max-width:610px}
+.eyebrow{font-size:13px;letter-spacing:2.5px;color:var(--brown);font-weight:600;margin-bottom:15px}
+.hero h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(46px,7vw,78px);line-height:1.04;color:var(--dark);letter-spacing:1px;margin-bottom:22px}
+.hero-text{font-size:18px;max-width:520px;margin-bottom:30px}
+.buttons{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 27px;border-radius:30px;border:1px solid transparent;background:var(--brown);color:var(--white);text-decoration:none;cursor:pointer;font-size:15px;transition:.25s;box-shadow:0 8px 20px rgba(60,40,25,.10)}
+.btn:hover{background:var(--gold);transform:translateY(-2px)}
+.btn.outline{background:rgba(255,255,255,.80);color:var(--brown);border-color:var(--brown);box-shadow:none}
+.btn.outline:hover{background:var(--brown);color:var(--white)}
+.btn.large{padding:15px 30px}
+.hero-badge{position:absolute;right:7%;bottom:55px;background:rgba(255,255,255,.82);border:1px solid rgba(176,138,87,.35);padding:18px 24px;border-radius:18px;text-align:left;box-shadow:0 12px 35px rgba(60,40,25,.12);backdrop-filter:blur(5px)}
+.hero-badge span{display:block;font-size:12px;color:var(--text)}
+.hero-badge strong{font-family:Georgia,"Times New Roman",serif;font-size:21px;color:var(--dark)}
+
+.benefits{display:grid;grid-template-columns:repeat(3,1fr);background:var(--cream);border-bottom:1px solid var(--border);padding:25px 8%}
+.benefits>div{display:grid;grid-template-columns:42px 1fr;grid-template-rows:auto auto;column-gap:12px;align-items:center;padding:5px 28px;border-right:1px solid var(--border)}
+.benefits>div:last-child{border-right:0}
+.benefits span{grid-row:1/3;font-size:30px;color:var(--gold);text-align:center}
+.benefits strong{color:var(--dark);font-size:14px}
+.benefits small{font-size:12px;color:#7b6b60}
+
+section{padding:82px 8%}
+.section{background:var(--cream)}
+.title{text-align:center;max-width:760px;margin:0 auto 42px}
+.title h2{font-family:Georgia,"Times New Roman",serif;font-size:clamp(32px,4vw,48px);line-height:1.15;color:var(--dark);margin-bottom:14px}
+.title>p:last-child{font-size:16px}
+#colecao .grid{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.card{background:#fff;border:1px solid var(--border);border-radius:18px;overflow:hidden;transition:.25s;box-shadow:0 5px 18px rgba(60,40,25,.06)}
+.card:hover{transform:translateY(-5px);box-shadow:0 15px 35px rgba(60,40,25,.12)}
+.card>img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+.card-content{padding:20px}
+.card h3{font-family:Georgia,"Times New Roman",serif;font-size:23px;color:var(--dark);margin-bottom:6px}
+.card p{font-size:14px;min-height:46px;margin-bottom:15px;color:#74665e}
+.card .btn{width:100%;padding:12px 16px;font-size:14px}
+.collection-cta{text-align:center;margin-top:38px}
+
+.about{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;background:linear-gradient(135deg,#f2e4d8,#fbf7f2)}
+.about h2{font-family:Georgia,"Times New Roman",serif;font-size:clamp(34px,5vw,52px);line-height:1.15;color:var(--dark)}
+.about>div:last-child p{font-size:17px;margin-bottom:14px;max-width:560px}
+.contact{background:var(--white);text-align:center}
+.contact .title{margin-bottom:0}
+footer{background:var(--dark);color:var(--white);text-align:center;padding:35px 20px}
+footer strong{font-family:Georgia,"Times New Roman",serif;font-size:20px}
+footer p{font-size:14px;opacity:.85;margin:5px 0}
+footer small{opacity:.65}
+
+@media(max-width:1000px){
+ #colecao .grid{grid-template-columns:repeat(2,1fr);max-width:700px}
+ .about{grid-template-columns:1fr;gap:25px}
 }
-
-:root {
-    --bg: #fbf7f2;
-    --bg-light: #fffdfb;
-    --dark: #2c2521;
-    --brown: #8f6552;
-    --gold: #b08a57;
-    --text: #4a403a;
-    --white: #ffffff;
-    --border: #e8ddd4;
+@media(max-width:700px){
+ header{min-height:74px;padding:8px 5%}
+ header img{width:88px}
+ .menu{display:block}
+ nav{display:none;position:absolute;top:74px;left:0;right:0;background:rgba(255,255,255,.98);padding:18px 5%;border-bottom:1px solid var(--border);box-shadow:0 10px 25px rgba(40,30,20,.08)}
+ nav.open{display:flex;flex-direction:column;gap:17px;align-items:flex-start}
+ nav a{font-size:14px}
+ .hero{min-height:590px;padding:55px 6%;background-image:linear-gradient(180deg,rgba(248,241,233,.96) 0%,rgba(248,241,233,.90) 48%,rgba(248,241,233,.45) 100%),url("imagens/IMG-20260909-WA0095.jpg");background-position:center;background-size:cover}
+ .hero h1{font-size:42px}
+ .hero-text{font-size:16px}
+ .buttons{flex-direction:column;align-items:stretch;gap:13px;max-width:330px}
+ .buttons .btn{width:100%}
+ .hero-badge{display:none}
+ .benefits{grid-template-columns:1fr;padding:10px 6%}
+ .benefits>div{border-right:0;border-bottom:1px solid var(--border);padding:12px 8px}
+ .benefits>div:last-child{border-bottom:0}
+ section{padding:58px 5%}
+ #colecao .grid{grid-template-columns:1fr 1fr;gap:13px}
+ .card-content{padding:13px}
+ .card h3{font-size:19px}
+ .card p{font-size:12px;min-height:52px}
+ .card .btn{font-size:12px;padding:10px 8px}
+ .title{margin-bottom:30px}
+ .title h2{font-size:31px}
 }
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-}
-
-/* CABEÇALHO */
-
-header {
-    width: 100%;
-    min-height: 85px;
-    padding: 10px 6%;
-    background: var(--white);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-/* LOGO */
-
-header img {
-    width: 115px;
-    height: auto;
-    display: block;
-    object-fit: contain;
-}
-
-header > a {
-    display: flex;
-    align-items: center;
-}
-
-/* MENU */
-
-nav {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-
-nav a {
-    text-decoration: none;
-    color: var(--dark);
-    font-size: 15px;
-    font-weight: 500;
-    transition: 0.3s;
-}
-
-nav a:hover {
-    color: var(--gold);
-}
-
-.menu {
-    display: none;
-    border: none;
-    background: transparent;
-    font-size: 28px;
-    cursor: pointer;
-    color: var(--dark);
-}
-
-/* HERO */
-
-#inicio {
-    min-height: 620px;
-    padding: 80px 8%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: linear-gradient(
-        135deg,
-        #fbf7f2,
-        #f4e9df
-    );
-}
-
-#inicio h1 {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(42px, 7vw, 78px);
-    color: var(--dark);
-    letter-spacing: 3px;
-    margin-bottom: 15px;
-}
-
-#inicio h2 {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(22px, 4vw, 34px);
-    color: var(--brown);
-    font-weight: normal;
-    margin-bottom: 20px;
-}
-
-#inicio p {
-    max-width: 650px;
-    margin: 0 auto 30px;
-    font-size: 17px;
-    color: var(--text);
-}
-
-/* BOTÕES */
-
-button,
-.btn,
-a.button {
-    display: inline-block;
-    padding: 13px 28px;
-    border-radius: 30px;
-    border: none;
-    background: var(--brown);
-    color: var(--white);
-    text-decoration: none;
-    cursor: pointer;
-    font-size: 15px;
-    transition: 0.3s;
-}
-
-button:hover,
-.btn:hover,
-a.button:hover {
-    background: var(--gold);
-    transform: translateY(-2px);
-}
-
-/* SEÇÕES */
-
-section {
-    padding: 80px 8%;
-}
-
-section h2 {
-    text-align: center;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 38px;
-    color: var(--dark);
-    margin-bottom: 15px;
-}
-
-section > p {
-    max-width: 700px;
-    margin: 0 auto 40px;
-    text-align: center;
-}
-
-/* COLEÇÃO */
-
-#colecao {
-    background: var(--white);
-}
-
-#colecao .grid,
-.colecao-grid {
-    max-width: 1100px;
-    margin: 40px auto 0;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
-}
-
-.card,
-.produto,
-.categoria {
-    background: var(--bg-light);
-    border: 1px solid var(--border);
-    border-radius: 15px;
-    padding: 30px 20px;
-    text-align: center;
-    transition: 0.3s;
-}
-
-.card:hover,
-.produto:hover,
-.categoria:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(60, 40, 25, 0.10);
-}
-
-.card h3,
-.produto h3,
-.categoria h3 {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 23px;
-    color: var(--brown);
-    margin-top: 15px;
-}
-
-.card img,
-.produto img,
-.categoria img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
-/* SOBRE */
-
-#sobre {
-    background: var(--bg);
-}
-
-#sobre p {
-    max-width: 750px;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 17px;
-}
-
-/* CONTATO */
-
-#contato {
-    background: var(--white);
-    text-align: center;
-}
-
-#contato p {
-    margin-bottom: 15px;
-}
-
-#contato a {
-    color: var(--brown);
-    text-decoration: none;
-}
-
-#contato a:hover {
-    color: var(--gold);
-}
-
-/* RODAPÉ */
-
-footer {
-    background: var(--dark);
-    color: var(--white);
-    text-align: center;
-    padding: 30px 20px;
-}
-
-footer p {
-    font-size: 14px;
-}
-
-/* RESPONSIVO PARA CELULAR */
-
-@media (max-width: 800px) {
-
-    header {
-        padding: 8px 5%;
-        min-height: 75px;
-    }
-
-    header img {
-        width: 90px;
-    }
-
-    nav {
-        gap: 15px;
-    }
-
-    nav a {
-        font-size: 13px;
-    }
-
-    #inicio {
-        min-height: 550px;
-        padding: 60px 6%;
-    }
-
-    #inicio h1 {
-        font-size: 43px;
-        letter-spacing: 2px;
-    }
-
-    #inicio h2 {
-        font-size: 25px;
-    }
-
-    #inicio p {
-        font-size: 15px;
-    }
-
-    section {
-        padding: 60px 6%;
-    }
-
-    section h2 {
-        font-size: 32px;
-    }
-
-    #colecao .grid,
-    .colecao-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-    }
-}
-
-@media (max-width: 550px) {
-
-    header {
-        position: relative;
-    }
-
-    header img {
-        width: 85px;
-    }
-
-    nav {
-        gap: 10px;
-    }
-
-    nav a {
-        font-size: 12px;
-    }
-
-    #inicio {
-        min-height: 500px;
-    }
-
-    #inicio h1 {
-        font-size: 38px;
-    }
-
-    #inicio h2 {
-        font-size: 22px;
-    }
-
-    section {
-        padding: 50px 5%;
-    }
-
-    #colecao .grid,
-    .colecao-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .card,
-    .produto,
-    .categoria {
-        padding: 20px 10px;
-    }
+@media(max-width:390px){
+ #colecao .grid{gap:9px}
+ .card-content{padding:11px}
+ .card h3{font-size:17px}
+ .card p{font-size:11px}
 }
