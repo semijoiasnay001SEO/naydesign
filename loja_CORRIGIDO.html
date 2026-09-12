@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nay Semi Joias | Loja</title>
+
+    <link rel="stylesheet" href="loja.css">
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="loja-header">
+
+        <a href="index.html" class="loja-logo">
+            <img src="logo.jpg" alt="Nayara Oliveira Semi Joias">
+        </a>
+
+        <nav class="loja-nav">
+            <a href="index.html">Início</a>
+            <a href="loja.html">Loja</a>
+            <a href="#produtos-area">Produtos</a>
+        </nav>
+
+
+        <button class="carrinho-botao" id="abrir-carrinho" type="button" aria-label="Abrir carrinho">
+            🛒 <span>Meu carrinho</span>
+            <b id="contador-carrinho">0</b>
+        </button>
+
+    </header>
+
+
+    <!-- BANNER -->
+    <section class="loja-banner">
+
+        <h1>Nay Semi Joias</h1>
+
+        <p>
+            Descubra nossa coleção de semijoias e encontre
+            a peça perfeita para você.
+        </p>
+
+    </section>
+
+
+    <!-- CATEGORIAS -->
+    <section class="categorias" id="categorias">
+
+        <button class="ativo" onclick="filtrarProdutos('Todos', this)">
+            Todos
+        </button>
+
+        <button onclick="filtrarProdutos('Chokers', this)">
+            Chokers
+        </button>
+
+        <button onclick="filtrarProdutos('Colares', this)">
+            Colares
+        </button>
+
+        <button onclick="filtrarProdutos('Brincos', this)">
+            Brincos
+        </button>
+
+        <button onclick="filtrarProdutos('Pulseiras', this)">
+            Pulseiras
+        </button>
+
+        <button onclick="filtrarProdutos('Conjuntos', this)">
+            Conjuntos
+        </button>
+
+        <button onclick="filtrarProdutos('Tornozeleiras', this)">
+            Tornozeleiras
+        </button>
+
+        <button onclick="filtrarProdutos('Braceletes', this)">
+            Braceletes
+        </button>
+
+        <button onclick="filtrarProdutos('Piercings', this)">
+            Piercings
+        </button>
+
+    </section>
+
+
+    <!-- PRODUTOS -->
+    <main class="loja-produtos" id="produtos-area">
+
+        <h2>Nossa Coleção</h2>
+
+        <div id="produtos"></div>
+
+    </main>
+
+
+
+    <!-- CARRINHO -->
+    <div class="carrinho-overlay" id="carrinho-overlay" aria-hidden="true">
+        <aside class="carrinho-painel" aria-label="Carrinho de compras">
+            <div class="carrinho-topo">
+                <div>
+                    <span class="carrinho-kicker">NAY SEMI JOIAS</span>
+                    <h2>Meu carrinho</h2>
+                </div>
+                <button class="carrinho-fechar" id="fechar-carrinho" type="button" aria-label="Fechar carrinho">×</button>
+            </div>
+
+            <div id="itens-carrinho" class="itens-carrinho"></div>
+
+            <div class="carrinho-vazio" id="carrinho-vazio">
+                <div class="carrinho-vazio-icone">🛍️</div>
+                <h3>Seu carrinho está vazio</h3>
+                <p>Escolha suas peças favoritas e adicione ao carrinho.</p>
+            </div>
+
+            <div class="carrinho-resumo">
+                <div><span>Total</span><strong id="total-carrinho">R$ 0,00</strong></div>
+                <button id="finalizar-whatsapp" class="finalizar-whatsapp" type="button">
+                    Finalizar pedido pelo WhatsApp
+                </button>
+                <button id="continuar-comprando" class="continuar-comprando" type="button">
+                    Continuar comprando
+                </button>
+                <small>O pagamento online poderá ser conectado em uma próxima etapa.</small>
+            </div>
+        </aside>
+    </div>
+
+    <!-- RODAPÉ -->
+    <footer class="loja-footer">
+
+        <h3>Nay Semi Joias</h3>
+
+        <p>
+            Elegância, beleza e sofisticação em cada detalhe.
+        </p>
+
+        <p>
+            © 2026 Nay Semi Joias — Todos os direitos reservados.
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="produtos.js?v=3"></script>
+    <script src="carrinho.js?v=3"></script>
+    <script>
+        function filtrarProdutos(categoria, botao) {
+            const botoes = document.querySelectorAll(".categorias button");
+
+            botoes.forEach(function(item) {
+                item.classList.remove("ativo");
+            });
+
+            botao.classList.add("ativo");
+
+            if (categoria === "Todos") {
+
+                renderizarProdutos(produtos);
+
+            } else {
+
+                const produtosFiltrados = produtos.filter(function(produto) {
+
+                    return produto.categoria === categoria;
+
+                });
+
+                renderizarProdutos(produtosFiltrados);
+            }
+
+            document
+                .getElementById("produtos-area")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+        }
+
+    </script>
+
+</body>
+</html>
