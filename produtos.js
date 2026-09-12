@@ -96,26 +96,39 @@ function renderizarProdutos(lista) {
     preco.textContent = formatarPreco(produto.preco);
     const cores = document.createElement("p");
     cores.textContent = "Banho: " + produto.cores.join(" • ");
-    const botao = document.createElement("button");
-botao.className = "adicionar-carrinho";
-botao.type = "button";
-botao.textContent = "Adicionar ao carrinho";
+    const botaoWhatsApp = document.createElement("button");
+botaoWhatsApp.textContent = "Falar com consultor via WhatsApp";
 
-botao.addEventListener("click", function() {
+botaoWhatsApp.addEventListener("click", function() {
+    const mensagem =
+        "Olá! Tenho interesse em " + produto.nome +
+        " - " + formatarPreco(produto.preco) +
+        " - Banho: " + produto.cores.join(" • ");
+
+    window.open(
+        "https://wa.me/5511999999999?text=" + encodeURIComponent(mensagem),
+        "_blank"
+    );
+});
+
+const botaoCarrinho = document.createElement("button");
+botaoCarrinho.className = "adicionar-carrinho";
+botaoCarrinho.type = "button";
+botaoCarrinho.textContent = "Adicionar ao carrinho";
+
+botaoCarrinho.addEventListener("click", function() {
     if (typeof window.adicionarAoCarrinho === "function") {
         window.adicionarAoCarrinho(produto);
     }
 });
-    info.appendChild(preco);
-    info.appendChild(cores);
-    info.appendChild(botao);
-    card.appendChild(imagem);
-    card.appendChild(info);
-    container.appendChild(card);
-  });
-}
 
-window.produtos = produtos;
-window.formatarPreco = formatarPreco;
-window.renderizarProdutos = renderizarProdutos;
-document.addEventListener("DOMContentLoaded", function() { renderizarProdutos(produtos); });
+info.appendChild(categoria);
+info.appendChild(nome);
+info.appendChild(preco);
+info.appendChild(cores);
+info.appendChild(botaoWhatsApp);
+info.appendChild(botaoCarrinho);
+
+card.appendChild(imagem);
+card.appendChild(info);
+container.appendChild(card);
