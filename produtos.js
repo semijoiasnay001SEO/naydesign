@@ -123,18 +123,22 @@ botaoCarrinho.addEventListener("click", function() {
 });
 
 info.appendChild(categoria);
-info.appendChild(nome);
-info.appendChild(preco);
-info.appendChild(cores);
-info.appendChild(botaoWhatsApp);
-info.appendChild(botaoCarrinho);
+    info.appendChild(nome);
+    info.appendChild(preco);
+    info.appendChild(cores);
+    info.appendChild(botaoWhatsApp);
+    info.appendChild(botaoCarrinho);
 
-card.appendChild(imagem);
-card.appendChild(info);
-container.appendChild(card);
+    card.appendChild(imagem);
+    card.appendChild(info);
+    container.appendChild(card);
+  });
+}
+
 window.produtos = produtos;
 window.renderizarProdutos = renderizarProdutos;
 window.formatarPreco = formatarPreco;
+
 document.addEventListener("DOMContentLoaded", function() {
-    renderizarProdutos(produtos);
+  renderizarProdutos(produtos);
 });
