@@ -106,7 +106,7 @@ botaoWhatsApp.addEventListener("click", function() {
         " - Banho: " + produto.cores.join(" • ");
 
     window.open(
-        "https://wa.me/5519992763019?text=" + encodeURIComponent(mensagem),
+        "https://wa.me/5519993622836?text=" + encodeURIComponent(mensagem),
         "_blank"
     );
 });
