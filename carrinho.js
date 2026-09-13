@@ -1,6 +1,6 @@
 (function () {
     const CHAVE_CARRINHO = "naySemiJoiasCarrinho";
-    const NUMERO_WHATSAPP = "5519992763019"; // Trocar pelo WhatsApp real da loja.
+    const NUMERO_WHATSAPP = "5519993622836"; // Trocar pelo WhatsApp real da loja.
     let carrinho = [];
 
     try {
