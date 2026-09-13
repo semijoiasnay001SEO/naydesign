@@ -1,21 +1,31 @@
 (function () {
     const CHAVE_CARRINHO = "naySemiJoiasCarrinho";
-    let carrinho = JSON.parse(localStorage.getItem(CHAVE_CARRINHO) || "[]");
+    const NUMERO_WHATSAPP = "5511999999999"; // Trocar pelo WhatsApp real da loja.
+    let carrinho = [];
+
+    try {
+        carrinho = JSON.parse(localStorage.getItem(CHAVE_CARRINHO) || "[]");
+        if (!Array.isArray(carrinho)) carrinho = [];
+    } catch (e) {
+        carrinho = [];
+    }
 
     function salvar() {
         localStorage.setItem(CHAVE_CARRINHO, JSON.stringify(carrinho));
     }
 
     function quantidadeTotal() {
-        return carrinho.reduce((total, item) => total + item.quantidade, 0);
+        return carrinho.reduce((total, item) => total + Number(item.quantidade || 0), 0);
     }
 
     function totalCarrinho() {
-        return carrinho.reduce((total, item) => total + (item.preco * item.quantidade), 0);
+        return carrinho.reduce((total, item) => {
+            return total + (Number(item.preco) * Number(item.quantidade || 0));
+        }, 0);
     }
 
     function formatarPreco(valor) {
-        return valor.toLocaleString("pt-BR", {
+        return Number(valor || 0).toLocaleString("pt-BR", {
             style: "currency",
             currency: "BRL"
         });
@@ -34,7 +44,6 @@
         if (!lista || !vazio || !total) return;
 
         lista.innerHTML = "";
-
         vazio.style.display = carrinho.length ? "none" : "block";
 
         carrinho.forEach(function (item) {
@@ -42,8 +51,11 @@
             div.className = "item-carrinho";
 
             const img = document.createElement("img");
-            img.src = item.imagem;
-            img.alt = item.nome;
+            img.src = item.imagem || "";
+            img.alt = item.nome || "Produto";
+            img.onerror = function () {
+                this.style.display = "none";
+            };
 
             const conteudo = document.createElement("div");
 
@@ -52,7 +64,7 @@
 
             const preco = document.createElement("div");
             preco.className = "item-carrinho-preco";
-            preco.textContent = formatarPreco(item.preco * item.quantidade);
+            preco.textContent = formatarPreco(Number(item.preco) * Number(item.quantidade || 0));
 
             const acoes = document.createElement("div");
             acoes.className = "item-carrinho-acoes";
@@ -63,6 +75,7 @@
             const menos = document.createElement("button");
             menos.type = "button";
             menos.textContent = "−";
+            menos.setAttribute("aria-label", "Diminuir quantidade");
             menos.addEventListener("click", function () {
                 alterarQuantidade(item.id, -1);
             });
@@ -73,6 +86,7 @@
             const mais = document.createElement("button");
             mais.type = "button";
             mais.textContent = "+";
+            mais.setAttribute("aria-label", "Aumentar quantidade");
             mais.addEventListener("click", function () {
                 alterarQuantidade(item.id, 1);
             });
@@ -106,15 +120,19 @@
     }
 
     function adicionarAoCarrinho(produto) {
-        const existente = carrinho.find(item => item.id === produto.id);
+        if (!produto || produto.id == null) return;
+
+        const existente = carrinho.find(function (item) {
+            return item.id === produto.id;
+        });
 
         if (existente) {
-            existente.quantidade += 1;
+            existente.quantidade = Number(existente.quantidade || 0) + 1;
         } else {
             carrinho.push({
                 id: produto.id,
                 nome: produto.nome,
-                preco: produto.preco,
+                preco: Number(produto.preco),
                 imagem: produto.imagem,
                 quantidade: 1
             });
@@ -126,13 +144,18 @@
     }
 
     function alterarQuantidade(id, delta) {
-        const item = carrinho.find(item => item.id === id);
+        const item = carrinho.find(function (item) {
+            return item.id === id;
+        });
+
         if (!item) return;
 
-        item.quantidade += delta;
+        item.quantidade = Number(item.quantidade || 0) + delta;
 
         if (item.quantidade <= 0) {
-            carrinho = carrinho.filter(item => item.id !== id);
+            carrinho = carrinho.filter(function (item) {
+                return item.id !== id;
+            });
         }
 
         salvar();
@@ -140,7 +163,9 @@
     }
 
     function removerItem(id) {
-        carrinho = carrinho.filter(item => item.id !== id);
+        carrinho = carrinho.filter(function (item) {
+            return item.id !== id;
+        });
         salvar();
         renderizarCarrinho();
     }
@@ -163,11 +188,64 @@
         document.body.classList.remove("carrinho-aberto");
     }
 
+    function finalizarWhatsApp() {
+        if (!carrinho.length) {
+            alert("Seu carrinho está vazio. Adicione pelo menos um produto.");
+            return;
+        }
+
+        const linhas = carrinho.map(function (item) {
+            const subtotal = Number(item.preco) * Number(item.quantidade || 0);
+            return "• " + item.nome +
+                " | Qtd: " + item.quantidade +
+                " | " + formatarPreco(subtotal);
+        });
+
+        const mensagem =
+            "Olá! Quero fazer um pedido na Nay Semi Joias.%0A%0A" +
+            linhas.join("%0A") +
+            "%0A%0A" +
+            "Total: " + encodeURIComponent(formatarPreco(totalCarrinho())) +
+            "%0A%0A" +
+            "Aguardo confirmação do pedido.";
+
+        const url = "https://wa.me/" + NUMERO_WHATSAPP + "?text=" + mensagem;
+        window.open(url, "_blank");
+    }
+
     function configurar() {
-        document.getElementById("abrir-carrinho")?.addEventListener("click", abrirCarrinho);
+        const abrir = document.getElementById("abrir-carrinho");
+        const fechar = document.getElementById("fechar-carrinho");
+        const continuar = document.getElementById("continuar-comprando");
+        const overlay = document.getElementById("carrinho-overlay");
+        const finalizar = document.getElementById("finalizar-whatsapp");
 
-        document.getElementById("fechar-carrinho")?.addEventListener("click", fecharCarrinho);
+        if (abrir) abrir.addEventListener("click", abrirCarrinho);
+        if (fechar) fechar.addEventListener("click", fecharCarrinho);
+        if (continuar) continuar.addEventListener("click", fecharCarrinho);
+        if (finalizar) finalizar.addEventListener("click", finalizarWhatsApp);
 
-        document.getElementById("continuar-comprando")?.addEventListener("click", fecharCarrinho);
+        if (overlay) {
+            overlay.addEventListener("click", function (event) {
+                if (event.target === overlay) fecharCarrinho();
+            });
+        }
 
-        document.getElementById("carrinho-overlay")?.addEventListener("click", function (event) {
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape") fecharCarrinho();
+        });
+
+        renderizarCarrinho();
+    }
+
+    window.adicionarAoCarrinho = adicionarAoCarrinho;
+    window.abrirCarrinho = abrirCarrinho;
+    window.fecharCarrinho = fecharCarrinho;
+    window.renderizarCarrinho = renderizarCarrinho;
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", configurar);
+    } else {
+        configurar();
+    }
+})();
