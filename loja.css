@@ -10,7 +10,13 @@ body.carrinho-aberto{overflow:hidden}
 .categorias{background:#fff;padding:22px 5%;display:flex;justify-content:center;gap:9px;flex-wrap:wrap;border-bottom:1px solid #e8ddd4}.categorias button{border:1px solid #d8c6b7;background:#fff;color:#6b5142;padding:10px 17px;border-radius:24px;cursor:pointer}.categorias button.ativo,.categorias button:hover{background:#8f6552;color:#fff}
 .loja-produtos{max-width:1280px;margin:auto;padding:55px 5%}.loja-produtos h2{text-align:center;font-family:Georgia,"Times New Roman",serif;font-size:38px;color:#2c2521;margin-bottom:36px}
 #produtos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
-.produto-card{background:#fff;border:1px solid #e3d7cd;border-radius:12px;overflow:hidden;box-shadow:0 6px 20px rgba(60,40,25,.06);display:flex;flex-direction:column;min-width:0}.produto-imagem{width:100%;aspect-ratio:1/1;background:#f7f1eb;display:flex;align-items:center;justify-content:center;overflow:hidden}.produto-imagem img{width:100%;height:100%;object-fit:contain;display:block}.sem-imagem{color:#9b8577;font-size:14px}
+.produto-card{.produto-imagem img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+  transform:scale(1.2);
+} }
 .produto-info{padding:16px;display:flex;flex-direction:column;flex:1}.produto-categoria{text-transform:uppercase;letter-spacing:1.4px;font-size:10px;color:#b08a57;font-weight:700;margin-bottom:5px}.produto-info h3{font-family:Georgia,"Times New Roman",serif;font-size:20px;line-height:1.25;color:#2c2521;margin-bottom:9px;min-height:50px}.produto-info strong{font-size:22px;color:#2c2521;margin-bottom:10px}.produto-badge{display:inline-block;align-self:flex-start;background:#caa45f;color:#fff;padding:6px 11px;border-radius:18px;font-size:9px;letter-spacing:1px;font-weight:700;margin-bottom:9px}.produto-banho{text-transform:none;font-size:11px;letter-spacing:1px;color:#6e625a;margin-bottom:12px}.produto-detalhes{display:grid;gap:5px;font-size:11px;color:#6e625a;margin-bottom:14px}.produto-acoes{margin-top:auto;display:grid;gap:8px}.produto-acoes button{width:100%;border:0;border-radius:7px;padding:12px 10px;cursor:pointer;font-size:13px;font-weight:700}.btn-carrinho{background:#5d3b20;color:#fff}.btn-carrinho:hover{background:#7a502e}.btn-whatsapp{background:#d9ba75;color:#2b2420}.btn-whatsapp:hover{background:#caa45f}
 .sem-produtos{grid-column:1/-1;text-align:center;padding:40px;color:#75665d}
 .loja-footer{background:#2c2521;color:#fff;text-align:center;padding:35px 20px;margin-top:20px}.loja-footer h3{font-family:Georgia,"Times New Roman",serif;margin-bottom:8px}.loja-footer p{font-size:14px;opacity:.85}
