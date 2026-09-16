@@ -1,17 +1,10 @@
-NAY SEMI JOIAS — SITE
+NAY SEMI JOIAS
 
-Este é o site da Nay Semi Joias.
+Versão refeita para reproduzir o visual de catálogo enviado pelo cliente.
 
-Arquivos:
-index.html = página principal
-style.css = visual do site
-script.js = menu do celular
+Arquivos principais: index.html, loja.html, loja.css, produtos.js, carrinho.js.
+As fotos dos produtos usadas no catálogo são os arquivos IMG-20260909-*.jpg enviados no projeto.
+O carrinho usa localStorage e o fechamento do pedido abre o WhatsApp.
+Número do WhatsApp configurado: 55 19 99276-3019.
 
-IMPORTANTE:
-- O ZIP não deve ser o único arquivo no GitHub. Extraia e envie os arquivos diretamente para a raiz do repositório.
-- As áreas "Foto da peça" serão substituídas pelas fotos reais das semijoias.
-- O número 5511999999999 no index.html deve ser trocado pelo WhatsApp da loja.
-- Depois podemos adicionar logo, fotos reais, catálogo, preços, Instagram e formas de pagamento.
-
-GitHub Pages:
-Repositório > Settings > Pages > Deploy from a branch > main > /(root) > Save.
+Para publicar no GitHub Pages, envie todos os arquivos desta pasta mantendo a pasta das imagens e o logo.
