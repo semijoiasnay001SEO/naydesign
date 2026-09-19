@@ -1331,3 +1331,90 @@ button {
     padding: 8px 11px;
   }
 }
+/* CABEÇALHO DA LOJA */
+.loja-header {
+  width: 100%;
+  min-height: 80px;
+  padding: 12px 5%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: #fffaf5;
+  border-bottom: 1px solid #e5d5c4;
+  box-shadow: 0 3px 12px rgba(60,40,25,.08);
+}
+
+.loja-logo {
+  display: flex;
+  align-items: center;
+}
+
+.loja-logo img {
+  width: 95px;
+  height: auto;
+  max-height: 65px;
+  object-fit: contain;
+}
+
+.loja-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
+.loja-nav a {
+  color: #3b2d24;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.loja-nav a:hover {
+  color: #a77a45;
+}
+
+.carrinho-botao {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 15px;
+  border: 1px solid #cdb69f;
+  border-radius: 25px;
+  background: #fff;
+  color: #6c4d35;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* CELULAR */
+@media (max-width: 700px) {
+  .loja-header {
+    min-height: 70px;
+    padding: 10px 14px;
+    flex-wrap: wrap;
+  }
+
+  .loja-logo img {
+    width: 80px;
+    max-height: 55px;
+  }
+
+  .loja-nav {
+    order: 3;
+    width: 100%;
+    gap: 18px;
+    justify-content: center;
+  }
+
+  .loja-nav a {
+    font-size: 14px;
+  }
+
+  .carrinho-botao {
+    font-size: 13px;
+    padding: 8px 11px;
+  }
+}
