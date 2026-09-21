@@ -83,31 +83,57 @@ body.carrinho-aberto{overflow:hidden}
 }
 
 .hero-store{
+  position:relative;
   width:100%;
+  min-height:390px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
   text-align:center;
-  padding:58px 20px 48px;
-  background:linear-gradient(135deg,#f8f0e5,#f2e3d3);
+  padding:55px 20px;
+  background-image:linear-gradient(90deg,rgba(55,35,22,.72) 0%,rgba(55,35,22,.42) 45%,rgba(55,35,22,.18) 100%),url("IMG-20260909-WA0066.jpg");
+  background-size:cover;
+  background-position:center 43%;
   border-bottom:1px solid #eadbc8;
 }
-.eyebrow{
-  margin:0 0 10px;
-  color:var(--gold);
+.hero-content{
+  position:relative;
+  z-index:1;
+  max-width:650px;
+  color:#fff;
+  text-shadow:0 2px 12px rgba(0,0,0,.28);
+}
+.hero-logo{
+  width:125px;
+  height:125px;
+  object-fit:contain;
+  border-radius:8px;
+  margin:0 auto 12px;
+  background:rgba(255,250,244,.94);
+  padding:8px;
+  box-shadow:0 6px 20px rgba(0,0,0,.18);
+}
+.hero-store .eyebrow{
+  margin:0 0 8px;
+  color:#f0d28f;
   font-size:11px;
   font-weight:700;
-  letter-spacing:3px;
+  letter-spacing:4px;
 }
 .hero-store h1{
-  margin:0 0 14px;
-  color:var(--dark);
+  margin:0 0 12px;
+  color:#fff;
   font-family:Georgia,"Times New Roman",serif;
   font-size:clamp(38px,6vw,62px);
-  line-height:1.1;
+  line-height:1.08;
 }
-.hero-store>p:last-child{
+.hero-store p:last-child{
   max-width:650px;
   margin:0 auto;
-  color:var(--muted);
-  font-size:16px;
+  color:#fff;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:20px;
 }
 
 .category-bar{
