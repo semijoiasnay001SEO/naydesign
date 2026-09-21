@@ -47,7 +47,7 @@
       let msg='Olá! Quero fazer um pedido na Nay Semi Joias:\n\n';
       cart.forEach(i=>{msg+=i.quantidade+'x '+i.nome+' — '+money(i.preco*i.quantidade)+'\n'});
       const total=cart.reduce((s,i)=>s+i.preco*i.quantidade,0);msg+='\nTotal: '+money(total);
-      window.open('https://wa.me/5519992763019?text='+encodeURIComponent(msg),'_blank','noopener');
+      window.open('https://wa.me/5519993622836?text='+encodeURIComponent(msg),'_blank','noopener');
     });
   });
 })();
