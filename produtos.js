@@ -72,7 +72,7 @@ function formatarPreco(valor) {
 
 function abrirWhatsApp(produto) {
   const msg = "Olá! Tenho interesse em " + produto.nome + " - " + formatarPreco(produto.preco) + ". Banho: " + produto.cores.join(", ") + ".";
-  window.open("https://wa.me/5519992763019?text=" + encodeURIComponent(msg), "_blank", "noopener");
+  window.open("https://wa.me/5519993622836?text=" + encodeURIComponent(msg), "_blank", "noopener");
 }
 
 function adicionarProdutoAoCarrinho(produto) {
