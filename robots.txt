@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://semijoiasnay001seo.github.io/naydesign/sitemap.xml
